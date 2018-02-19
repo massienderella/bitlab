@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>ChatLab</title>
+  <script src="https://www.gstatic.com/firebasejs/4.10.0/firebase.js"></script>
+  <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+
+<body>
+  <section id="authentication">
+    <div class="row">
+      <div class="input-field col s8  offset-s2">
+        <input id="txtEmail" type="tel" class="validate white-text">
+        <label for="txtEmail"></label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s8 offset-s2">
+        <input id="txtPassword" type="password" class="validate white-text">
+        <label for="txtPassword"></label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s4 l2 offset-s5 offset-l5">
+        <button class="btn" id="btnLogin">Iniciar sesión </button>
+      </div>
+    </div>
+    <div class="row">
+      <div id="lastPart">
+        <p>¿No tienes una cuenta registrate?
+          <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat" id="btnSignUp">Registrarme</a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <form class="col s12">
+        <div class="row">
+          <div class="input-field col s6">
+            <input id="txtEmail2" type="tel" class="validate black-text">
+            <label for="txtEmail2">mail</label>
+          </div>
+          <div class="input-field col s6">
+            <input id="txtPassword2" type="password" class="validate black-text">
+            <label for="txtPassword2">contraseña</label>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <section id="homePage">
+    <div class="row nav">
+      <div class="col s6 l6">
+        <h4>The best experience</h4>
+      </div>
+      <div class="col s6 l6">
+        <button class="btn btns" id="btnVolver">Return</button>
+        <button class="btn btns" id="btnSalir">Get out</button>
+      </div>
+    </div>
+  </section>
+
+
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="assets/js/materialize.min.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+
+</html>
