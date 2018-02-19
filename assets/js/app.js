@@ -67,3 +67,51 @@
     }
   });
 }());
+
+
+//TRABAJO CON API
+
+//Clave de API: JBO9kz4vLHKHCMk0
+
+//Secreto de API: b6MuoF3jbw7R2JyfYMSbOqVAhDHz1Tv3
+
+var Client = require('coinbase').Client;
+
+var client = new Client({
+  'apiKey': 'JBO9kz4vLHKHCMk0',
+  'apiSecret': 'b6MuoF3jbw7R2JyfYMSbOqVAhDHz1Tv3',
+  'version':'2018-02-19'
+});
+
+client.getAccounts({}, function(err, accounts) {
+  accounts.forEach(function(acct) {
+    console.log(acct.name + ': ' + acct.balance.amount + ' ' + acct.balance.currency);
+    acct.getTransactions(null, function(err, txns) {
+      txns.forEach(function(txn) {
+        console.log('txn: ' + txn.id);
+      });
+    });
+  });
+});
+
+client.createAccount({'name': 'New Wallet'}, function(err, acct) {
+  console.log(acct.name + ': ' + acct.balance.amount + ' ' + acct.balance.currency);
+});
+
+client.getAccount('primary', function(err, primaryAccount) {
+  // Generate a new bitcoin address for the account from previous steps:
+  account.createAddress(null, function(err, address) {
+    // Send coins to the new account from your primary account:
+    primaryAccount.sendMoney({'to': address.address,
+                              'amount': '0.01',
+                              'currency': 'BTC',
+                              'description': 'For being awesome!'}, function(err, tx) {
+       console.log(tx);
+    });
+  });
+});
+
+// refresh the account
+client.getAccount(primaryAccount.id, function(err, acct) {
+  console.log(acct.name + ': ' + acct.balance.amount + ' ' + acct.balance.currency);
+});
