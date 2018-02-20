@@ -72,36 +72,136 @@ $(document).ready(function() {
 }());
 
 //API COINDESK + OBTENEMOS LA DATA
-$(document).ready(() =>{
+$(document).ready(() => {
   $.ajax({
     url: 'https://api.coindesk.com/v1/bpi/currentprice/CLP.json',
     type: 'GET',
     datatype: 'json'
   })
-    .done(function(response) {
+    .done(function (response) {
       // getCurrencyRate(response);
       console.log(response)
       const data = JSON.parse(response)
       console.log(data)
       getCurrencyRate(data)
-  })
-    .fail(function() {
+    })
+    .fail(function () {
       console.log('error en conexión a API');
-   });
+    });
 });
-     
+
 
 function getCurrencyRate(data) {
   let currencyRate = data.bpi.CLP.rate;
-  console.log('El valor en CLP es de $' + currencyRate)
+  let currencyRateUSD = data.bpi.USD.rate;
+  console.log('El valor en CLP es de $' + currencyRate + 'El valor en USD es de $' + currencyRateUSD)
+  $.ajax({
+    url: 'https://api.coindesk.com/v1/bpi/historical/close.json?start=2018-02-01&end=2018-02-19',
+    type: 'GET',
+    datatype: 'json'
+  })
+    .done(function (response) {
+      const data = JSON.parse(response)
+      console.log(data)
+      currencyMonthlyUsd(data)
+    })
+    .fail(function () {
+      console.log('error en conexión a API');
+    });
+};
+
+function currencyMonthlyUsd(data) {
+  let currencyUsd = data.bpi;
+  console.log(currencyUsd)
+  $.ajax({
+    url: 'https://api.coindesk.com/v1/bpi/historical/close.json?start=2018-02-13&end=2018-02-20',
+    type: 'GET',
+    datatype: 'json'
+  })
+    .done(function (response) {
+      const data = JSON.parse(response)
+      console.log(data)
+      currencyWeeklyUsd(data)
+    })
+    .fail(function () {
+      console.log('error en conexión a API');
+    });
+};
+
+function currencyWeeklyUsd(data) {
+  let currencyUsd = data.bpi;
+  console.log(currencyUsd)
+  $.ajax({
+    url: 'https://api.coindesk.com/v1/bpi/historical/close.json?for=yesterday',
+    type: 'GET',
+    datatype: 'json'
+  })
+    .done(function (response) {
+      const data = JSON.parse(response)
+      console.log(data)
+      currencyYesterdayUsd(data)
+    })
+    .fail(function () {
+      console.log('error en conexión a API');
+    });
 }
 
-//USD
-https://api.coindesk.com/v1/bpi/historical/close.json?start=2018-02-01&end=2018-02-19 (histórico mensual)
-https://api.coindesk.com/v1/bpi/historical/close.json?for=yesterday (valor día ayer)
-https://api.coindesk.com/v1/bpi/historical/close.json?start=2018-02-13&end=2018-02-20 (histórico semanal)
+function currencyYesterdayUsd(data) {
+  let currencyUsd = data.bpi;
+  console.log(currencyUsd)
+  $.ajax({
+    url: 'https://api.coindesk.com/v1/bpi/historical/close.json?start=2018-02-01&end=2018-02-19&currency=CLP',
+    type: 'GET',
+    datatype: 'json'
+  })
+    .done(function (response) {
+      const data = JSON.parse(response)
+      console.log(data)
+      currencyMonthlyClp(data)
+    })
+    .fail(function () {
+      console.log('error en conexión a API');
+    });
+}
 
-//CLP
-https://api.coindesk.com/v1/bpi/historical/close.json?start=2018-02-01&end=2018-02-19&currency=CLP (histórico mensual clp)
-https://api.coindesk.com/v1/bpi/historical/close.json?for=yesterday&currency=CLP (día ayer clp)
-https://api.coindesk.com/v1/bpi/historical/close.json?start=2018-02-13&end=2018-02-20&currency=CLP (historico semanal clp)
+function currencyMonthlyClp(data) {
+  let currencyClp = data.bpi;
+  console.log(currencyClp)
+  $.ajax({
+    url: 'https://api.coindesk.com/v1/bpi/historical/close.json?start=2018-02-13&end=2018-02-20&currency=CLP',
+    type: 'GET',
+    datatype: 'json'
+  })
+    .done(function (response) {
+      const data = JSON.parse(response)
+      console.log(data)
+      currencyWeeklyClp(data)
+    })
+    .fail(function () {
+      console.log('error en conexión a API');
+    });
+}
+
+function currencyWeeklyClp(data) {
+  let currencyClp = data.bpi;
+  console.log(currencyClp)
+  $.ajax({
+    url: 'https://api.coindesk.com/v1/bpi/historical/close.json?for=yesterday&currency=CLP',
+    type: 'GET',
+    datatype: 'json'
+  })
+    .done(function (response) {
+      const data = JSON.parse(response)
+      console.log(data)
+      currencyYesterdayClp(data)
+    })
+    .fail(function () {
+      console.log('error en conexión a API');
+    });
+}
+
+function currencyYesterdayClp(data) {
+  let currencyClp = data.bpi;
+  console.log(currencyClp)
+}
+
