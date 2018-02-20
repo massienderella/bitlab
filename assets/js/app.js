@@ -207,7 +207,7 @@ function currencyYesterdayClp(data) {
   console.log(currencyClp)
 }
 
-
+//
 /*  una funcion que rescate el valor ingresado y luego lo multiplique por el valor 
 actual del bitcoins y lo muestre */
 //agregando evento al btnCoin
@@ -215,7 +215,19 @@ btnCoin.addEventListener('click', e => {
   const yourBitcoin = document.getElementById('btc-amount');
   const bitcoinsClp = yourBitcoin.value;
   console.log(bitcoinsClp);
-  const result =  bitcoinsClp * currencyRate;
-  console.log(result);
- $('.currency').append(`<p> Tu resultado es ${result} </p>`);
+  const resultClp =  bitcoinsClp * currencyRate;
+  const resultUsd = bitcoinsClp * currencyRateUSD;
+  
+  const cont = $('.selection');
+  $('.selection').on('change', function() {
+    var selectionUser = $('.selection').val();
+    if( selection === 1) {
+      $('.currency').append(`<p> Tu resultado es ${resultClp} </p>`);
+    } else if (selection === 2) {
+      $('.currency').append(`<p> Tu resultado es ${resultUsd} </p>`);
+    }{
+
+    }
+ 
+  });
 });
