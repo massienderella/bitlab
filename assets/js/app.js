@@ -94,8 +94,8 @@ let currencyRate;
 let currencyRateUSD;
 
 function getCurrencyRate(data) {
-  currencyRate = parseInt(data.bpi.CLP.rate);
-  currencyRateUSD = data.bpi.USD.rate;
+  currencyRate = Math.floor(data.bpi.CLP.rate);
+  currencyRateUSD = Math.floor(data.bpi.USD.rate);
   console.log('El valor en CLP es de $' + currencyRate + 'El valor en USD es de $' + currencyRateUSD)
   $.ajax({
     url: 'https://api.coindesk.com/v1/bpi/historical/close.json?start=2018-02-01&end=2018-02-19',
@@ -217,17 +217,15 @@ btnCoin.addEventListener('click', e => {
   console.log(bitcoinsClp);
   const resultClp =  bitcoinsClp * currencyRate;
   const resultUsd = bitcoinsClp * currencyRateUSD;
-  
-  const cont = $('.selection');
-  $('.selection').on('change', function() {
-    var selectionUser = $('.selection').val();
-    if( selection === 1) {
-      $('.currency').append(`<p> Tu resultado es ${resultClp} </p>`);
-    } else if (selection === 2) {
-      $('.currency').append(`<p> Tu resultado es ${resultUsd} </p>`);
-    }{
+  console.log(resultClp);
+  console.log(resultUsd);
 
-    }
+  const selectTag = document.getElementById('selection');
+  const select = selectTag.options[selectTag.selectedIndex].value;
+    if( select === '1') {
+      $('.currency').append(`<p> Tu resultado es en CLP ${resultClp} </p>`);
+    } else if (select === '2') {
+      $('.currency').append(`<p> Tu resultado es en USD ${resultUsd} </p>`);
+   }
  
-  });
 });
