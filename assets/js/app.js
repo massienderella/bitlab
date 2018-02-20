@@ -90,10 +90,12 @@ $(document).ready(() => {
     });
 });
 
+let currencyRate;
+let currencyRateUSD;
 
 function getCurrencyRate(data) {
-  let currencyRate = data.bpi.CLP.rate;
-  let currencyRateUSD = data.bpi.USD.rate;
+  currencyRate = parseInt(data.bpi.CLP.rate);
+  currencyRateUSD = data.bpi.USD.rate;
   console.log('El valor en CLP es de $' + currencyRate + 'El valor en USD es de $' + currencyRateUSD)
   $.ajax({
     url: 'https://api.coindesk.com/v1/bpi/historical/close.json?start=2018-02-01&end=2018-02-19',
@@ -205,3 +207,15 @@ function currencyYesterdayClp(data) {
   console.log(currencyClp)
 }
 
+
+/*  una funcion que rescate el valor ingresado y luego lo multiplique por el valor 
+actual del bitcoins y lo muestre */
+//agregando evento al btnCoin
+btnCoin.addEventListener('click', e => {
+  const yourBitcoin = document.getElementById('btc-amount');
+  const bitcoinsClp = yourBitcoin.value;
+  console.log(bitcoinsClp);
+  const result =  bitcoinsClp * currencyRate;
+  console.log(result);
+ $('.currency').append(`<p> Tu resultado es ${result} </p>`);
+});
