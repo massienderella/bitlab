@@ -67,3 +67,44 @@
     }
   });
 }());
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+https://api.coindesk.com/v1/bpi/historical/close.json?start=2018-02-01&end=2018-02-19 (histórico mensual)
+https://api.coindesk.com/v1/bpi/historical/close.json?for=yesterday (valor día ayer)
+https://api.coindesk.com/v1/bpi/historical/close.json?start=2018-02-13&end=2018-02-20 (histórico semanal)
+
+CLP
+https://api.coindesk.com/v1/bpi/historical/close.json?start=2018-02-01&end=2018-02-19&currency=CLP (histórico mensual clp)
+https://api.coindesk.com/v1/bpi/historical/close.json?for=yesterday&currency=CLP (día ayer clp)
+https://api.coindesk.com/v1/bpi/historical/close.json?start=2018-02-13&end=2018-02-20&currency=CLP (historico semanal clp)
+*/
