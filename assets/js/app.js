@@ -75,7 +75,7 @@
 
 //Secreto de API: b6MuoF3jbw7R2JyfYMSbOqVAhDHz1Tv3
 
-var Client = require('coinbase').Client;
+/*import {Client} from 'coinbase';
 
 var client = new Client({
   'apiKey': 'JBO9kz4vLHKHCMk0',
@@ -114,4 +114,4 @@ client.getAccount('primary', function(err, primaryAccount) {
 // refresh the account
 client.getAccount(primaryAccount.id, function(err, acct) {
   console.log(acct.name + ': ' + acct.balance.amount + ' ' + acct.balance.currency);
-});
+});*/
