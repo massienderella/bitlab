@@ -1,3 +1,6 @@
+$(document).ready(function() {
+    $('select').material_select();
+});
 // Initialize Firebase
 (function () { //iife una expresion de funcion invocada inmediatamente (function)
   const config = {
@@ -201,3 +204,4 @@ function currencyYesterdayClp(data) {
   let currencyClp = data.bpi;
   console.log(currencyClp)
 }
+
