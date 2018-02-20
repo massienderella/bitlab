@@ -1,0 +1,60 @@
+body, .row{
+  margin: 0;
+  padding: 0;
+}
+
+.authentication{
+  width: 100%;
+  height: 100vh;
+  background-image: url(../img/background1.jpg);
+}
+
+nav{
+  background-color: rgba(0,0,0,0.3);
+  box-shadow: none;
+}
+
+.nav-wrapper{
+  margin-right: 2%;
+}
+
+.brand-logo{
+  margin-left: 2%;
+}
+
+.description{
+  color: white;
+  background-color: rgba(0,0,0,0.3);
+  margin-top: 3%;
+}
+
+.phone-img{
+  width: 80%;
+  height: auto;
+}
+
+.register{
+  color: white;
+  background-color: rgba(0,0,0,0.3);
+  margin-top: 3%;
+}
+
+#homePage{
+  display: none;
+}
+
+.info{
+  width: 100%;
+  height: 100vh;
+  background-image: url(../img/background2.jpg);
+}
+
+.title{
+  color: white;
+}
+
+.dataInfo{
+  color: white;
+  background-color: rgba(0,0,0,0.8);
+  width: 100%;
+}

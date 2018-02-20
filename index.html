@@ -5,55 +5,70 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>ChatLab</title>
+  <title>BitLab</title>
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
   <script src="https://www.gstatic.com/firebasejs/4.10.0/firebase.js"></script>
   <link rel="stylesheet" href="assets/css/font-awesome.min.css">
   <link rel="stylesheet" href="assets/css/main.css">
 </head>
 
 <body>
-  <section id="authentication">
-    <div class="row">
-      <div class="input-field col s8  offset-s2">
-        <input id="txtEmail" type="tel" class="validate white-text">
-        <label for="txtEmail"></label>
-      </div>
+<section class="authentication">
+  <nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo">Logo</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li class="email"><input id="txtEmail" type="tel" class="validate white-text" placeholder="E-mail">
+        <label for="txtEmail"></label></label>
+        </li>
+        <li class="password"><input id="txtPassword" type="password" class="validate white-text" placeholder="Password">
+        <label for="txtPassword"></label></li>
+        <li><button class="btn" id="btnLogin">Iniciar sesión </button></li>
+      </ul>
     </div>
-    <div class="row">
-      <div class="input-field col s8 offset-s2">
-        <input id="txtPassword" type="password" class="validate white-text">
-        <label for="txtPassword"></label>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col s4 l2 offset-s5 offset-l5">
-        <button class="btn" id="btnLogin">Iniciar sesión </button>
-      </div>
-    </div>
-    <div class="row">
-      <div id="lastPart">
-        <p>¿No tienes una cuenta registrate?
-          <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat" id="btnSignUp">Registrarme</a>
-        </p>
-      </div>
-    </div>
-    <div class="row">
-      <form class="col s12">
-        <div class="row">
-          <div class="input-field col s6">
-            <input id="txtEmail2" type="tel" class="validate black-text">
-            <label for="txtEmail2">mail</label>
-          </div>
-          <div class="input-field col s6">
-             <input id="txtPassword2" type="password" class="validate black-text">
-            <label for="txtPassword2">contraseña</label>
-          </div>
-        </div>
-      </form>
-    </div>
-  </section>
+  </nav>
 
-  <section id="homePage">
+<section class="description">
+  <div class="container">
+    <div class="row">
+      <div class="col s8">
+        <h1 class="right-align">Welcome to BitLab</h1>
+        <p class="right-align">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta, rem, dolorum quidem quasi eaque in eius iure a delectus impedit consectetur eos, sint quas repellendus! Praesentium, et similique! Id, amet.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio provident, iste quos dolores impedit veritatis nesciunt minima voluptate cupiditate tenetur atque ad suscipit sunt ratione optio, eligendi architecto ipsum velit.</p>
+      </div>
+      <div class="col s4">
+        <img src="assets/img/phone.png" class="phone-img" alt="">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="register">
+<div class="row">
+  <div id="lastPart">
+    <p class="center-align">¿No tienes una cuenta registrate?
+      <button class="btn" id="btnSignUp">Registrarme</button>
+    </p>
+  </div>
+</div>
+<div class="row">
+  <form class="col s12">
+    <div class="row">
+      <div class="input-field col s6">
+        <input id="txtEmail2" type="tel" class="validate black-text">
+        <label for="txtEmail2">mail</label>
+       </div>
+       <div class="input-field col s6">
+          <input id="txtPassword2" type="password" class="validate black-text">
+          <label for="txtPassword2">contraseña</label>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+</section>
+
+<section id="homePage">
     <div class="row nav">
       <div class="col s6 l6">
         <h4>The best experience</h4>
@@ -63,10 +78,81 @@
         <button class="btn btns" id="btnSalir">Get out</button>
       </div>
     </div>
-  </section>
-<section>
-  <div class="info"></div>
 </section>
+
+<section class="info">
+  <nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo">Logo</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li class="email">Welcome, Lexis! </li>
+        <li><button class="btn btns" id="btnSalir">Sign out</button></li>
+      </ul>
+    </div>
+  </nav>
+
+<div class="information">
+  <div class="row">
+    <div class="col s12">
+      <h2 class="center-align title">Your stats</h2>
+    </div>
+  </div>
+  <div class="row dataInfo">
+    <div class="col s6">
+      <div class="row">
+        <div class="col s12">
+          <div class="yourBitcoins">
+            <h4 class="center-align">Your Bitcoins</h4>
+            <div class="input-btc">
+              <input id="btc-amount" type="number" class="btc" placeholder="Ingresa tu cantidad de Bitcoins">
+              <label for="bitcoinAmout"></label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12">
+          <div class="yourBitcoins">
+            <h4 class="center-align">Convert to 
+            <select>
+              <option value="" disabled selected>Choose your option</option>
+              <option value="1">CLP</option>
+              <option value="2">USD</option>
+            </select>
+            <label>Choose your currency</label></h4>
+            <div class="btc-to-currency">
+              <div class="currency"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col s6">
+      <div class="row">
+        <div class="col s12">
+          <h4 class="center-align">Historical prices</h4>
+        </div>
+      </div>
+      <div class="row">
+    <div class="col s12">
+      <ul class="tabs">
+        <li class="tab col s3"><a class="active" href="#test1">Hoy</a></li>
+        <li class="tab col s3"><a href="#test2">Ayer</a></li>
+        <li class="tab col s3"><a href="#test3">Semanal</a></li>
+        <li class="tab col s3"><a href="#test4">Mensual</a></li>
+      </ul>
+    </div>
+    <div id="test1" class="col s12"></div>
+    <div id="test2" class="col s12"></div>
+    <div id="test3" class="col s12"></div>
+    <div id="test4" class="col s12"></div>
+  </div>
+    </div>
+  </div>
+</div>
+  
+</section>
+
 
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <script type="text/javascript" src="assets/js/materialize.min.js"></script>

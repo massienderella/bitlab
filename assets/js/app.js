@@ -1,3 +1,6 @@
+$(document).ready(function() {
+    $('select').material_select();
+});
 // Initialize Firebase
 (function () { //iife una expresion de funcion invocada inmediatamente (function)
   const config = {
@@ -86,7 +89,6 @@ $(document).ready(() => {
       console.log('error en conexión a API');
     });
 });
-
 
 function getCurrencyRate(data) {
   let currencyRate = data.bpi.CLP.rate;
@@ -201,3 +203,4 @@ function currencyYesterdayClp(data) {
   let currencyClp = data.bpi;
   console.log(currencyClp)
 }
+
