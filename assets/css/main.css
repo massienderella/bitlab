@@ -12,8 +12,14 @@ body, .row{
 }
 
 nav{
-  background-color: rgba(0,0,0,0.3);
+  background-color: rgba(0,0,0,0.5);
   box-shadow: none;
+}
+
+.img-logo{
+  width: 20%;
+  height: auto;
+  margin-top: 1%;
 }
 
 .nav-wrapper{
@@ -24,9 +30,17 @@ nav{
   margin-left: 2%;
 }
 
+#txtEmail{
+  margin-left: -25%;
+}
+
+#txtPassword{
+  margin-left: -15%;
+}
+
 .description{
   color: white;
-  background-color: rgba(0,0,0,0.3);
+  background-color: rgba(0,0,0,0.8);
   margin-top: 3%;
 }
 
@@ -37,7 +51,7 @@ nav{
 
 .register{
   color: white;
-  background-color: rgba(0,0,0,0.3);
+  background-color: rgba(0,0,0,0.5);
   margin-top: 3%;
 }
 
@@ -59,4 +73,8 @@ nav{
   color: white;
   background-color: rgba(0,0,0,0.8);
   width: 100%;
+}
+
+label{
+  color: white;
 }
