@@ -227,4 +227,5 @@ btnCoin.addEventListener('click', e => {
     } else if (select === '2') {
       $('.currency').append(`<p> Tu resultado es en USD ${resultUsd} </p>`);
    }
+ 
 });
