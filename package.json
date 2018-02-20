@@ -1,0 +1,25 @@
+{
+  "name": "bitlab",
+  "version": "1.0.0",
+  "description": "BTC and ETH wallet and news",
+  "main": "index.js",
+  "dependencies": {
+    "nvm": "0.0.4"
+  },
+  "devDependencies": {
+    "coinbase": "^2.0.7"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/massienderella/bitlab.git"
+  },
+  "author": "Lexis Rodriguez, Massiel Moraga",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/massienderella/bitlab/issues"
+  },
+  "homepage": "https://github.com/massienderella/bitlab#readme"
+}

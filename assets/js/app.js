@@ -68,35 +68,30 @@
   });
 }());
 
+//API COINDESK + OBTENEMOS LA DATA
+$(document).ready(() =>{
+  $.ajax({
+    url: 'https://api.coindesk.com/v1/bpi/currentprice/CLP.json',
+    type: 'GET',
+    datatype: 'json'
+  })
+    .done(function(response) {
+      // getCurrencyRate(response);
+      console.log(response)
+      const data = JSON.parse(response)
+      console.log(data)
+      getCurrencyRate(data)
+  })
+    .fail(function() {
+      console.log('error en conexión a API');
+   });
+});
+     
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+function getCurrencyRate(data) {
+  let currencyRate = data.bpi.CLP.rate;
+  console.log('El valor en CLP es de $' + currencyRate)
+}
 
 /*
 https://api.coindesk.com/v1/bpi/historical/close.json?start=2018-02-01&end=2018-02-19 (histórico mensual)
@@ -108,3 +103,5 @@ https://api.coindesk.com/v1/bpi/historical/close.json?start=2018-02-01&end=2018-
 https://api.coindesk.com/v1/bpi/historical/close.json?for=yesterday&currency=CLP (día ayer clp)
 https://api.coindesk.com/v1/bpi/historical/close.json?start=2018-02-13&end=2018-02-20&currency=CLP (historico semanal clp)
 */
+
+
