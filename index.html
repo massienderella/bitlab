@@ -14,61 +14,72 @@
 </head>
 
 <body>
-<section class="authentication">
-  <nav>
-    <div class="nav-wrapper">
-      <a href="#" class="brand-logo"><img src="assets/img/logo-blanco.png" class="img-logo" alt=""></a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li class="email"><input id="txtEmail" type="tel" class="validate white-text" placeholder="E-mail">
-        <label for="txtEmail"></label></label>
-        </li>
-        <li class="password"><input id="txtPassword" type="password" class="validate white-text" placeholder="Password">
-        <label for="txtPassword"></label></li>
-        <li><button class="btn grey darken-3" id="btnLogin">Iniciar sesión </button></li>
-      </ul>
-    </div>
-  </nav>
-
-<section class="description">
-  <div class="container">
-    <div class="row">
-      <div class="col s8">
-        <h1 class="right-align">Welcome to BitLab</h1>
-        <p class="right-align">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta, rem, dolorum quidem quasi eaque in eius iure a delectus impedit consectetur eos, sint quas repellendus! Praesentium, et similique! Id, amet.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio provident, iste quos dolores impedit veritatis nesciunt minima voluptate cupiditate tenetur atque ad suscipit sunt ratione optio, eligendi architecto ipsum velit.</p>
+  <section class="authentication">
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo">
+          <img src="assets/img/logo-blanco.png" class="img-logo" alt="">
+        </a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li class="email">
+            <input id="txtEmail" type="tel" class="validate white-text" placeholder="E-mail">
+            <label for="txtEmail"></label>
+            </label>
+          </li>
+          <li class="password">
+            <input id="txtPassword" type="password" class="validate white-text" placeholder="Password">
+            <label for="txtPassword"></label>
+          </li>
+          <li>
+            <button class="btn" id="btnLogin">Iniciar sesión </button>
+          </li>
+        </ul>
       </div>
-      <div class="col s4">
-        <img src="assets/img/phone.png" class="phone-img" alt="">
-      </div>
-    </div>
-  </div>
-</section>
+    </nav>
 
-<section class="register">
-<div class="row">
-  <div id="lastPart">
-    <p class="center-align">¿No tienes una cuenta registrate?
-      <button class="btn grey darken-3" id="btnSignUp">Registrarme</button>
-    </p>
-  </div>
-</div>
-<div class="row">
-  <form class="col s12">
-    <div class="row">
-      <div class="input-field col s6">
-        <input id="txtEmail2" type="tel" class="validate black-text">
-        <label for="txtEmail2">mail</label>
-       </div>
-       <div class="input-field col s6">
-          <input id="txtPassword2" type="password" class="validate black-text">
-          <label for="txtPassword2">contraseña</label>
+    <section class="description">
+      <div class="container">
+        <div class="row">
+          <div class="col s8">
+            <h1 class="right-align">Welcome to BitLab</h1>
+            <p class="right-align">BitLab offers complete cryptocurrency management, with easy to use tools to keep track of all your cryptocurrency
+              investments. Get detailed price and market information for individual currencies and your entire portfolio
+              all in one place.</p>
+          </div>
+          <div class="col s4">
+            <img src="assets/img/phone.png" class="phone-img" alt="">
+          </div>
         </div>
       </div>
-    </form>
-  </div>
-</section>
-</section>
+    </section>
 
-<section id="homePage">
+    <section class="register">
+      <div class="row">
+        <div id="lastPart">
+          <p class="center-align">¿You don't have an account yet?</p>
+        </div>
+      </div>
+      <div class="row">
+        <form class="col s8 l8">
+          <div class="row">
+            <div class="input-field col s4 l4">
+              <input id="txtEmail2" type="tel" class="validate white-text center-align">
+              <label for="txtEmail2" class="text-info">EMAIL</label>
+            </div>
+            <div class="input-field col s4 l4">
+              <input id="txtPassword2" type="password" class="validate white-text center-align">
+              <label for="txtPassword2">PASSWORD</label>
+            </div>
+          </div>
+        </form>
+        <div class="input-field col s4 l4">
+          <button class="btn" id="btnSignUp">Registrarme</button>
+        </div>
+      </div>
+    </section>
+  </section>
+
+  <section id="homePage">
     <div class="row nav">
       <div class="col s6 l6">
         <h4>The best experience</h4>
@@ -78,81 +89,95 @@
         <button class="btn btns grey darken-3" id="btnSalir">Get out</button>
       </div>
     </div>
-</section>
+  </section>
 
-<section class="info">
-  <nav>
-    <div class="nav-wrapper">
-      <a href="#" class="brand-logo"><img src="assets/img/logo-blanco.png" class="img-logo" alt=""></a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li class="email">Welcome, Lexis! </li>
-        <li><button class="btn btns grey darken-3" id="btnSalir">Sign out</button></li>
-      </ul>
-    </div>
-  </nav>
-
-<div class="information">
-  <div class="row">
-    <div class="col s12">
-      <h2 class="center-align title">Your stats</h2>
-    </div>
-  </div>
-  <div class="row dataInfo">
-    <div class="col s6">
+  <section class="info">
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo">
+          <img src="assets/img/logo-blanco.png" class="img-logo" alt="">
+        </a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li class="email"> Welcome, Lexis! </li>
+          <li>
+            <button class="btn" id="btnSalir">Sign out </button>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="registration">
       <div class="row">
         <div class="col s12">
-          <div class="yourBitcoins">
-            <h4 class="center-align">Your Bitcoins</h4>
-            <div class="input-btc">
-              <input id="btc-amount" type="number" class="btc" placeholder="Ingresa tu cantidad de Bitcoins">
-              <label for="bitcoinAmout"></label>
+          <h2 class="center-align title">Register your bitcoin</h2>
+        </div>
+      </div>
+    </div>
+    <div class="information">
+      <div class="row dataInfo">
+        <div class="col s6">
+          <div class="row">
+            <div class="col s12">
+              <div class="yourBitcoins">
+                <h4 class="center-align">Your Bitcoins</h4>
+                <div class="input-btc">
+                  <input id="btc-amount" type="number" class="btc" placeholder="Ingresa tu cantidad de Bitcoins">
+                  <label for="bitcoinAmout"></label>
+                </div>
+              </div>
             </div>
+          </div>
+          <div class="row">
+            <div class="col s12">
+              <div class="yourBitcoins">
+                <h4 class="center-align">Convert to
+                  <select id="selection">
+                    <option value="0" disabled selected>Choose your option</option>
+                    <option value="1">CLP</option>
+                    <option value="2">USD</option>
+                  </select>
+                  <label>Choose your currency</label>
+                </h4>
+                <div class="btc-to-currency">
+                  <div class="currency"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="btn grey darken-3" id="btnCoin">Convert</button>
+        </div>
+        <div class="col s6">
+          <div class="row">
+            <div class="col s12">
+              <h4 class="center-align">Historical prices</h4>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col s12">
+              <ul class="tabs">
+                <li class="tab col s3">
+                  <a class="active" href="#test1">Hoy</a>
+                </li>
+                <li class="tab col s3">
+                  <a href="#test2">Ayer</a>
+                </li>
+                <li class="tab col s3">
+                  <a href="#test3">Semanal</a>
+                </li>
+                <li class="tab col s3">
+                  <a href="#test4">Mensual</a>
+                </li>
+              </ul>
+            </div>
+            <div id="test1" class="col s12"></div>
+            <div id="test2" class="col s12"></div>
+            <div id="test3" class="col s12"></div>
+            <div id="test4" class="col s12"></div>
           </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col s12">
-          <div class="yourBitcoins">
-            <h4 class="center-align">Convert to 
-            <select id="selection">
-              <option value="0" disabled selected>Choose your option</option>
-              <option  value="1">CLP</option>
-              <option  value="2">USD</option>
-            </select>
-            <label>Choose your currency</label></h4>
-            <div class="btc-to-currency">
-              <div class="currency"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <button class="btn grey darken-3" id="btnCoin">Convert</button>
     </div>
-    <div class="col s6">
-      <div class="row">
-        <div class="col s12">
-          <h4 class="center-align">Historical prices</h4>
-        </div>
-      </div>
-      <div class="row">
-    <div class="col s12">
-      <ul class="tabs">
-        <li class="tab col s3"><a class="active" href="#test1">Hoy</a></li>
-        <li class="tab col s3"><a href="#test2">Ayer</a></li>
-        <li class="tab col s3"><a href="#test3">Semanal</a></li>
-        <li class="tab col s3"><a href="#test4">Mensual</a></li>
-      </ul>
-    </div>
-    <div id="test1" class="col s12"></div>
-    <div id="test2" class="col s12"></div>
-    <div id="test3" class="col s12"></div>
-    <div id="test4" class="col s12"></div>
-  </div>
-    </div>
-  </div>
-</div>
-  
-</section>
+
+  </section>
 
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <script type="text/javascript" src="assets/js/materialize.min.js"></script>
