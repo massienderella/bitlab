@@ -9,6 +9,8 @@
   <!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
   <script src="https://www.gstatic.com/firebasejs/4.10.0/firebase.js"></script>
+  <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+  <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
   <link rel="stylesheet" href="assets/css/font-awesome.min.css">
   <link rel="stylesheet" href="assets/css/main.css">
 </head>
@@ -79,18 +81,6 @@
     </section>
   </section>
 
-  <section id="homePage">
-    <div class="row nav">
-      <div class="col s6 l6">
-        <h4>The best experience</h4>
-      </div>
-      <div class="col s6 l6">
-        <button class="btn btns grey darken-3" id="btnVolver">Return</button>
-        <button class="btn btns grey darken-3" id="btnSalir">Get out</button>
-      </div>
-    </div>
-  </section>
-
   <section class="info">
     <nav>
       <div class="nav-wrapper">
@@ -101,6 +91,9 @@
           <li class="email"> Welcome, Lexis! </li>
           <li>
             <button class="btn" id="btnSalir">Sign out </button>
+          </li>
+          <li>
+              <button class="btn" id="btnVolver">Return</button>
           </li>
         </ul>
       </div>
@@ -151,35 +144,35 @@
               <h4 class="center-align">Historical prices</h4>
             </div>
           </div>
+         
           <div class="row">
-            <div class="col s12">
-              <ul class="tabs">
-                <li class="tab col s3">
-                  <a class="active" href="#test1">Hoy</a>
-                </li>
-                <li class="tab col s3">
-                  <a href="#test2">Ayer</a>
-                </li>
-                <li class="tab col s3">
-                  <a href="#test3">Semanal</a>
-                </li>
-                <li class="tab col s3">
-                  <a href="#test4">Mensual</a>
-                </li>
-              </ul>
+              <div class="col s12">
+                <ul class="tabs">
+                  <li class="tab col s4"><a href="#test1">Hoy</a></li>
+                  <li class="tab col s4"><a href="#test2">Ayer</a></li>
+                  <li class="tab col s4"><a href="#test4">Mensual</a></li>
+                </ul>
+              </div>
+              <div id="test1" class="col s12"></div>
+              <div id="test2" class="col s12"></div>
+              <!--<div id="test3" class="col s12">
+                <div id="canvas3" class="col s12 canvas"></div>
+              </div>-->
+              <div class="canvas-cont" id="test4">
+                <div id="canvas4" class="col s12 canvas"></div>
+              </div>
             </div>
-            <div id="test1" class="col s12"></div>
-            <div id="test2" class="col s12"></div>
-            <div id="test3" class="col s12"></div>
-            <div id="test4" class="col s12"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </section>
+              </div>
+            </div>
+           </div>
+            
+           </section>
+              </div>
+           
+            </section>
 
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+ 
   <script type="text/javascript" src="assets/js/materialize.min.js"></script>
   <script src="assets/js/app.js"></script>
 </body>

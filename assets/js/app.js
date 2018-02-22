@@ -60,12 +60,12 @@ $(document).ready(function () {
 
   firebase.auth().onAuthStateChanged(firebaseUser => {
     if (firebaseUser) {
-      $('#authentication').hide();
-      $('#homePage').show();
+      $('.authentication').hide();
+      $('.info').show();
       if ($('#registrar').modal) $('#registrar').modal('close');
     } else {
-      $('#authentication').show();
-      $('#homePage').hide();
+      $('.authentication').show();
+      $('.info').hide();
       $('#registrar').modal('open');
     }
   });
@@ -227,9 +227,33 @@ btnCoin.addEventListener('click', e => {
   if (select === '1') {
     $('.currency').append(`<p> Total porfolio value CLP ${resultClp} </p>`);
   } else if (select === '2') {
-    $('.currency').append(`<p> Total porfolio value USD ${resultUsd} </p>`);
+    $('.currency').append(`<p> Total porfolio value  USD ${resultUsd} </p>`);
   }
 });
 
-
 //tostring
+
+window.onload = function () {
+  var dataPoints = [];
+  $.getJSON("https://api.coindesk.com/v1/bpi/historical/close.json?start=2018-02-01&end=2018-02-21&currency=CLP", function(data) {
+  console.log(data.bpi)
+  const bpi = data.bpi
+  console.log(Object.values(bpi))  
+  $.each(bpi, function(key, value){
+    console.log(key, value);
+    dataPoints.push({label: key, y: parseInt(value)});
+  
+  });
+  console.log(dataPoints)
+  var chart = new CanvasJS.Chart("canvas4",{
+    title:{
+      text:"Monthly BTC prices"
+    },
+    data: [{
+      type: "line",
+      dataPoints : dataPoints,
+    }]
+  });
+  chart.render();
+  });
+  }
