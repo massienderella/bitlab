@@ -100,6 +100,10 @@ function getCurrencyRate(data) {
   $('#test1').append('<h3 class="value today"> El valor del Bitcoin hoy en CLP es de ' + 'currencyRate' + '</h3>')
   $('#test1').append('<h3 class="value today"> El valor del Bitcoin hoy en USD es de ' + 'currencyRateUSD' + '</h3>')
   console.log('El valor en CLP es de $' + currencyRate + 'El valor en USD es de $' + currencyRateUSD)
+function getCurrencyRate(data) {//debo usar el parseInt
+  currencyRate =  (data.bpi.CLP.rate).split(',').join('').split('.')[0];
+  currencyRateUSD = (data.bpi.USD.rate).split(',').join('').split('.')[0];
+  console.log('El valor en CLP es de $' +  currencyRate +  ' El valor en USD es de $' + currencyRateUSD)
   $.ajax({
     url: 'https://api.coindesk.com/v1/bpi/historical/close.json?start=2018-02-01&end=2018-02-21',
     type: 'GET',
@@ -113,7 +117,7 @@ function getCurrencyRate(data) {
     .fail(function () {
       console.log('error en conexión a API');
     });
-
+  }
 };
 
 function currencyMonthlyUsd(data) {
@@ -161,14 +165,15 @@ function currencyYesterdayUsd(data) {
     type: 'GET',
     datatype: 'json'
   })
-    .done(function (response) {
-      const data = JSON.parse(response)
-      console.log(data)
-      currencyMonthlyClp(data)
-    })
-    .fail(function () {
-      console.log('error en conexión a API');
-    });
+  
+  .done(function (response) {
+    const data = JSON.parse(response)
+    console.log(data)
+    currencyMonthlyClp(data)
+  })
+  .fail(function () {
+    console.log('error en conexión a API');
+  });
 }
 
 function currencyMonthlyClp(data) {
@@ -220,21 +225,20 @@ btnCoin.addEventListener('click', e => {
   const yourBitcoin = document.getElementById('btc-amount');
   const bitcoinsClp = yourBitcoin.value;
   console.log(bitcoinsClp);
-  const resultClp =  bitcoinsClp * currencyRate;
+  const resultClp = bitcoinsClp * currencyRate;
   const resultUsd = bitcoinsClp * currencyRateUSD;
   console.log(resultClp);
   console.log(resultUsd);
+  
 
   const selectTag = document.getElementById('selection');
   const select = selectTag.options[selectTag.selectedIndex].value;
-    if( select === '1') {
-      $('.currency').append(`<p> Tu resultado es en CLP ${resultClp} </p>`);
-    } else if (select === '2') {
-      $('.currency').append(`<p> Tu resultado es en USD ${resultUsd} </p>`);
-   }
- 
+  if (select === '1') {
+    $('.currency').append(`<p> Total porfolio value CLP ${resultClp} </p>`);
+  } else if (select === '2') {
+    $('.currency').append(`<p> Total porfolio value USD ${resultUsd} </p>`);
+  }
 });
-
 
 
 /* No es posible hacer que aparezca otro canvas dentro de las tabs, probé poniendo este chart en un contenedor afuera del menú de tabs y de todas maneras no se ve. La idea era poder mostrar un gráfico con las variaciones semanales tanto como las mensuales. Solo las mensuales se ven en la página. 
@@ -288,3 +292,4 @@ console.log(Object.values(bpi))
  chart.render();
 });
 }
+
