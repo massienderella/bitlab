@@ -97,13 +97,15 @@ function getCurrencyRate(data) {//debo usar el parseInt
   currencyRate =  (data.bpi.CLP.rate).split(',').join('').split('.')[0];
   currencyRateUSD = (data.bpi.USD.rate).split(',').join('').split('.')[0];
   console.log('El valor en CLP es de $' +  currencyRate +  ' El valor en USD es de $' + currencyRateUSD)
+  $('#test2').append('<h3 class="yesterdayCLP">' + 'El valor del Bitcoin hoy en USD es de ' + currencyRateUSD + '</h3>');
+  $('#test2').append(`<h3 class="yesterdayCLP"> El valor del Bitcoin hoy en CLP es de ${currencyRate} </h3>`);
   $.ajax({
-    url: 'https://api.coindesk.com/v1/bpi/historical/close.json?start=2018-02-01&end=2018-02-19',
+    url: 'https://api.coindesk.com/v1/bpi/historical/close.json?start=2018-02-01&end=2018-02-21',
     type: 'GET',
     datatype: 'json'
   })
     .done(function (response) {
-      const data = JSON.parse(response)
+      const data = JSON.parse(response) 
       console.log(data)
       currencyMonthlyUsd(data)
     })
@@ -116,7 +118,7 @@ function currencyMonthlyUsd(data) {
   let currencyUsd = data.bpi;
   console.log(currencyUsd)
   $.ajax({
-    url: 'https://api.coindesk.com/v1/bpi/historical/close.json?start=2018-02-13&end=2018-02-20',
+    url: 'https://api.coindesk.com/v1/bpi/historical/close.json?start=2018-02-13&end=2018-02-21',
     type: 'GET',
     datatype: 'json'
   })
@@ -133,6 +135,7 @@ function currencyMonthlyUsd(data) {
 function currencyWeeklyUsd(data) {
   let currencyUsd = data.bpi;
   console.log(currencyUsd)
+  $('#test1').append('<h3 class="yesterdayCLP">' + 'El valor del Bitcoin ayer en USD es de ' + currencyUsd + '</h3>')
   $.ajax({
     url: 'https://api.coindesk.com/v1/bpi/historical/close.json?for=yesterday',
     type: 'GET',
@@ -152,7 +155,7 @@ function currencyYesterdayUsd(data) {
   let currencyUsd = data.bpi;
   console.log(currencyUsd)
   $.ajax({
-    url: 'https://api.coindesk.com/v1/bpi/historical/close.json?start=2018-02-01&end=2018-02-19&currency=CLP',
+    url: 'https://api.coindesk.com/v1/bpi/historical/close.json?start=2018-02-01&end=2018-02-21&currency=CLP',
     type: 'GET',
     datatype: 'json'
   })
@@ -171,7 +174,7 @@ function currencyMonthlyClp(data) {
   let currencyClp = data.bpi;
   console.log(currencyClp)
   $.ajax({
-    url: 'https://api.coindesk.com/v1/bpi/historical/close.json?start=2018-02-13&end=2018-02-20&currency=CLP',
+    url: 'https://api.coindesk.com/v1/bpi/historical/close.json?start=2018-02-13&end=2018-02-21&currency=CLP',
     type: 'GET',
     datatype: 'json'
   })
@@ -187,7 +190,8 @@ function currencyMonthlyClp(data) {
 
 function currencyWeeklyClp(data) {
   let currencyClp = data.bpi;
-  console.log(currencyClp)
+  console.log(currencyClp);
+
   $.ajax({
     url: 'https://api.coindesk.com/v1/bpi/historical/close.json?for=yesterday&currency=CLP',
     type: 'GET',
@@ -257,3 +261,6 @@ window.onload = function () {
   chart.render();
   });
   }
+
+ 
+  $('#test1').append(`<h3 class="yesterdayCLP"> El valor del Bitcoin ayer en CLP es de ${currencyClp} </h3>`)
