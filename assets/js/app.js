@@ -1,5 +1,6 @@
-$(document).ready(function () {
-  $('select').material_select();
+$(document).ready(function() {
+    $('select').material_select();
+    $('ul.tabs').tabs();
 });
 // Initialize Firebase
 (function () { //iife una expresion de funcion invocada inmediatamente (function)
@@ -93,6 +94,12 @@ $(document).ready(() => {
 let currencyRate;
 let currencyRateUSD;
 
+function getCurrencyRate(data) {
+  currencyRate = Math.floor(data.bpi.CLP.rate);
+  currencyRateUSD = Math.floor(data.bpi.USD.rate);
+  $('#test1').append('<h3 class="value today"> El valor del Bitcoin hoy en CLP es de ' + 'currencyRate' + '</h3>')
+  $('#test1').append('<h3 class="value today"> El valor del Bitcoin hoy en USD es de ' + 'currencyRateUSD' + '</h3>')
+  console.log('El valor en CLP es de $' + currencyRate + 'El valor en USD es de $' + currencyRateUSD)
 function getCurrencyRate(data) {//debo usar el parseInt
   currencyRate =  (data.bpi.CLP.rate).split(',').join('').split('.')[0];
   currencyRateUSD = (data.bpi.USD.rate).split(',').join('').split('.')[0];
@@ -112,6 +119,7 @@ function getCurrencyRate(data) {//debo usar el parseInt
     .fail(function () {
       console.log('error en conexión a API');
     });
+  }
 };
 
 function currencyMonthlyUsd(data) {
@@ -134,6 +142,7 @@ function currencyMonthlyUsd(data) {
 
 function currencyWeeklyUsd(data) {
   let currencyUsd = data.bpi;
+  $('#test2').append('<h3 class="yesterdayCLP"> El valor del Bitcoin ayer en USD es de ' + 'currencyUsd' + '</h3>')
   console.log(currencyUsd)
   $('#test1').append('<h3 class="yesterdayCLP">' + 'El valor del Bitcoin ayer en USD es de ' + currencyUsd + '</h3>')
   $.ajax({
@@ -209,7 +218,7 @@ function currencyWeeklyClp(data) {
 
 function currencyYesterdayClp(data) {
   let currencyClp = data.bpi;
-  console.log(currencyClp)
+    $('#test2').append('<h3 class="yesterdayCLP"> El valor del Bitcoin ayer en CLP es de ' + 'currencyClp' + '</h3>')
 }
 
 //
@@ -234,6 +243,7 @@ btnCoin.addEventListener('click', e => {
     $('.currency').append(`<p> Total porfolio value  USD ${resultUsd} </p>`);
   }
 });
+
 
 //tostring
 
@@ -264,3 +274,57 @@ window.onload = function () {
 
  
   $('#test1').append(`<h3 class="yesterdayCLP"> El valor del Bitcoin ayer en CLP es de ${currencyClp} </h3>`)
+
+
+/* No es posible hacer que aparezca otro canvas dentro de las tabs, probé poniendo este chart en un contenedor afuera del menú de tabs y de todas maneras no se ve. La idea era poder mostrar un gráfico con las variaciones semanales tanto como las mensuales. Solo las mensuales se ven en la página. 
+
+window.onload = function () {
+var dataPoints = [];
+$.getJSON("https://api.coindesk.com/v1/bpi/historical/close.json?start=2018-02-01&end=2018-02-20&currency=CLP", function(data) {
+console.log(data.bpi)
+const bpi = data.bpi
+console.log(Object.values(bpi))  
+ $.each(bpi, function(key, value){
+   console.log(key, value);
+   dataPoints.push({label: key, y: parseInt(value)});
+
+ });
+ console.log(dataPoints)
+ var chart = new CanvasJS.Chart("test3",{
+   title:{
+     text:"Weekly BTC prices"
+   },
+   data: [{
+     type: "line",
+     dataPoints : dataPoints,
+   }]
+ });
+ chart.render();
+});
+} */
+
+window.onload = function () {
+var dataPoints = [];
+$.getJSON("https://api.coindesk.com/v1/bpi/historical/close.json?start=2018-02-01&end=2018-02-21&currency=CLP", function(data) {
+console.log(data.bpi)
+const bpi = data.bpi
+console.log(Object.values(bpi))  
+ $.each(bpi, function(key, value){
+   console.log(key, value);
+   dataPoints.push({label: key, y: parseInt(value)});
+
+ });
+ console.log(dataPoints)
+ var chart = new CanvasJS.Chart("canvas4",{
+   title:{
+     text:"Monthly BTC prices"
+   },
+   data: [{
+     type: "line",
+     dataPoints : dataPoints,
+   }]
+ });
+ chart.render();
+});
+}
+

@@ -81,6 +81,11 @@ nav{
 label{
   color: white;
 }
+
+.canvasjs-chart-canvas{
+  width: 100%;
+  height: 300px;
+}
 #btnLogin {
   background-color: rgba(0,0,0,0.2);
   border: 1px solid white;
