@@ -102,6 +102,11 @@ label{
 
 }
 
+#btnVolver {
+  background-color: rgba(0,0,0,0.2);
+  border: 1px solid white;
+}
+
 .email {
   margin-right: 1em;
 } 
@@ -116,3 +121,17 @@ label{
   border: 1px solid white;
   text-align: center;
 }
+
+.canvasjs-chart-canvas{
+  width: 100%;
+  height: 300px;
+}
+
+.tabs .tab a {
+  color: black;
+}
+
+.tabs .tab a:hover, .tabs .tab a.active {
+  color: black;
+}
+
